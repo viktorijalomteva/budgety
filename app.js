@@ -370,9 +370,14 @@ var controller = (function(budgetCtrl, UICtrl) {
 };
     
     var ctrlDeleteItem = function(event) {
-        var itemID, splitID, type, ID;
+        var itemID, splitID, type, ID, item;
         
-        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+        item = event.target;
+        while(item.id.length < 1) {
+            item = item.parentNode;
+        }
+        itemID = item.id;
+        // itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         
         if (itemID) {
             
